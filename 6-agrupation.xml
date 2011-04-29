@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml>
+  <net id="n0">
+    <transition id="t3">
+      <graphics>
+        <position x="372" y="96"/>
+      </graphics>
+      <name>
+        <text>t3</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t2">
+      <graphics>
+        <position x="256" y="96"/>
+      </graphics>
+      <name>
+        <text>t2</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t1">
+      <graphics>
+        <position x="142" y="95"/>
+      </graphics>
+      <name>
+        <text>t1</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <place id="p4">
+      <graphics>
+        <position x="253" y="191"/>
+      </graphics>
+      <name>
+        <text>p4</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <arc id="i9" source="p4" target="t5">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="253" y="211"/>
+        <position x="252" y="296"/>
+      </graphics>
+    </arc>
+    <arc id="o6" source="t1" target="p4">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="147" y="100"/>
+        <position x="237" y="177"/>
+      </graphics>
+    </arc>
+    <arc id="o8" source="t3" target="p4">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="365" y="101"/>
+        <position x="269" y="177"/>
+      </graphics>
+    </arc>
+    <arc id="o7" source="t2" target="p4">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="255" y="101"/>
+        <position x="253" y="170"/>
+      </graphics>
+    </arc>
+    <transition id="t5">
+      <graphics>
+        <position x="253" y="301"/>
+      </graphics>
+      <name>
+        <text>t5</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+  </net>
+</pnml>

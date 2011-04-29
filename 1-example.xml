@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml>
+  <net id="n1">
+    <place id="p7">
+      <graphics>
+        <position x="315" y="502"/>
+      </graphics>
+      <name>
+        <text>p7</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p6">
+      <graphics>
+        <position x="402" y="377"/>
+      </graphics>
+      <name>
+        <text>p6</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <place id="p5">
+      <graphics>
+        <position x="218" y="382"/>
+      </graphics>
+      <name>
+        <text>p5</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p4">
+      <graphics>
+        <position x="388" y="236"/>
+      </graphics>
+      <name>
+        <text>p4</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p3">
+      <graphics>
+        <position x="217" y="236"/>
+      </graphics>
+      <name>
+        <text>p3</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <place id="p2">
+      <graphics>
+        <position x="293" y="150"/>
+      </graphics>
+      <name>
+        <text>p2</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p1">
+      <graphics>
+        <position x="288" y="52"/>
+      </graphics>
+      <name>
+        <text>p1</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <arc id="o24" source="t10" target="p5">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="214" y="319"/>
+        <position x="216" y="361"/>
+      </graphics>
+    </arc>
+    <arc id="o27" source="t13" target="p1">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="81" y="251"/>
+        <position x="82" y="51"/>
+        <position x="267" y="51"/>
+      </graphics>
+    </arc>
+    <arc id="i25" source="p5" target="t12">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="235" y="392"/>
+        <position x="306" y="436"/>
+      </graphics>
+    </arc>
+    <arc id="i26" source="p7" target="t13">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="294" y="501"/>
+        <position x="82" y="503"/>
+        <position x="81" y="261"/>
+      </graphics>
+    </arc>
+    <arc id="i23" source="p3" target="t10">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="215" y="256"/>
+        <position x="214" y="309"/>
+      </graphics>
+    </arc>
+    <arc id="o20" source="t11" target="p6">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="391" y="316"/>
+        <position x="397" y="356"/>
+      </graphics>
+    </arc>
+    <arc id="i21" source="p6" target="t12">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="385" y="389"/>
+        <position x="321" y="436"/>
+      </graphics>
+    </arc>
+    <arc id="o22" source="t12" target="p7">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="315" y="446"/>
+        <position x="314" y="481"/>
+      </graphics>
+    </arc>
+    <transition id="t10">
+      <graphics>
+        <position x="214" y="314"/>
+      </graphics>
+      <name>
+        <text>t10</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t11">
+      <graphics>
+        <position x="391" y="311"/>
+      </graphics>
+      <name>
+        <text>t11</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t12">
+      <graphics>
+        <position x="315" y="441"/>
+      </graphics>
+      <name>
+        <text>t12</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t13">
+      <graphics>
+        <position x="81" y="256"/>
+      </graphics>
+      <name>
+        <text>t13</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <arc id="o15" source="t8" target="p2">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="289" y="113"/>
+        <position x="290" y="129"/>
+      </graphics>
+    </arc>
+    <arc id="i19" source="p4" target="t11">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="389" y="256"/>
+        <position x="390" y="306"/>
+      </graphics>
+    </arc>
+    <arc id="o18" source="t9" target="p4">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="305" y="202"/>
+        <position x="368" y="227"/>
+      </graphics>
+    </arc>
+    <arc id="o17" source="t9" target="p3">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="283" y="202"/>
+        <position x="235" y="226"/>
+      </graphics>
+    </arc>
+    <arc id="i14" source="p1" target="t8">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="288" y="72"/>
+        <position x="288" y="103"/>
+      </graphics>
+    </arc>
+    <arc id="i16" source="p2" target="t9">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="293" y="171"/>
+        <position x="293" y="192"/>
+      </graphics>
+    </arc>
+    <transition id="t8">
+      <graphics>
+        <position x="289" y="108"/>
+      </graphics>
+      <name>
+        <text>t8</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t9">
+      <graphics>
+        <position x="293" y="197"/>
+      </graphics>
+      <name>
+        <text>t9</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+  </net>
+</pnml>

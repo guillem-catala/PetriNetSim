@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml>
+  <net id="n0">
+    <import>
+      <text>import java.util.Iterator;</text>
+    </import>
+    <declaration>
+      <text>String customer;
+int queueNumber;
+String server;
+class CheckIn{
+  private String customer;
+  private int queueNumber;
+  public CheckIn(String customer, int queueNumber){
+    this.customer = customer;
+    this.queueNumber = queueNumber;
+  }
+  public String toString(){
+    return "Customer: "+this.customer+" | Q.Number: "+this.queueNumber;
+  }
+  public int getQueueNumber(){
+    return this.queueNumber;
+  }
+  public String getCustomer(){
+    return this.customer;
+  }
+}
+class  UseServer{
+  private String customer;
+  private String server;
+  public UseServer(String customer, String server){
+    this.customer = customer;
+    this.server = server;
+  }
+  public String toString(){
+    return "Customer: "+this.customer+" | Server: "+this.server;
+  }
+  public String getServer(){
+    return this.server;
+  }
+  public String getCustomer(){
+    return this.customer;
+  }
+}
+public CheckIn removeCheckIn(CheckIn checkIn){
+    this.customer = checkIn.getCustomer();
+  return checkIn;
+}
+public Token removeUseServer(TokenSet tokenSet) {
+    Iterator it = tokenSet.iterator();
+        Token token=null;
+        while (it.hasNext()) {
+            Token i = (Token) it.next();
+            if (i.getTimestamp() == i20.getGlobalClock()) {
+                UseServer u = (UseServer) (i.getObject());
+                this.customer = u.getCustomer();
+                this.server = u.getServer();
+                token =  i;
+            }
+        }
+        return token;
+}</text>
+    </declaration>
+    <place id="p7">
+      <graphics>
+        <position x="140" y="460"/>
+      </graphics>
+      <name>
+        <text>Queue Number Machine</text>
+        <graphics>
+          <offset x="96" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>7</text>
+      </initialMarking>
+    </place>
+    <place id="p6">
+      <graphics>
+        <position x="660" y="500"/>
+      </graphics>
+      <name>
+        <text>Output</text>
+        <graphics>
+          <offset x="0" y="-40"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p5">
+      <graphics>
+        <position x="500" y="420"/>
+      </graphics>
+      <name>
+        <text>Idle Servers</text>
+        <graphics>
+          <offset x="8" y="32"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>"Server1: Andromeda"</text>
+      </initialMarking>
+    </place>
+    <place id="p4">
+      <graphics>
+        <position x="500" y="260"/>
+      </graphics>
+      <name>
+        <text>Customers being served</text>
+        <graphics>
+          <offset x="104" y="-8"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new UseServer("Laia","Calipso"), 324</text>
+        <text>new UseServer("Lorena","Cassiopeia"), 349</text>
+      </initialMarking>
+    </place>
+    <place id="p3">
+      <graphics>
+        <position x="380" y="220"/>
+      </graphics>
+      <name>
+        <text>Queue number display</text>
+        <graphics>
+          <offset x="16" y="-40"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>4</text>
+      </initialMarking>
+    </place>
+    <place id="p2">
+      <graphics>
+        <position x="260" y="340"/>
+      </graphics>
+      <name>
+        <text>Waiting Line</text>
+        <graphics>
+          <offset x="8" y="-40"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new CheckIn("Marta",4)</text>
+        <text>new CheckIn("Silvia",5)</text>
+        <text>new CheckIn("Jessica",6)</text>
+      </initialMarking>
+    </place>
+    <place id="p1">
+      <graphics>
+        <position x="140" y="260"/>
+      </graphics>
+      <name>
+        <text>Input</text>
+        <graphics>
+          <offset x="-40" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>"Jack"</text>
+      </initialMarking>
+    </place>
+    <transition id="t23">
+      <graphics>
+        <position x="139" y="137"/>
+      </graphics>
+      <name>
+        <text>t23</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return p2.getTokens().size()&lt;15;</text>
+      </guard>
+    </transition>
+    <arc id="o24" source="t23" target="p1">
+      <expression>
+        <text>"Anònim"</text>
+      </expression>
+      <graphics>
+        <position x="139" y="142"/>
+        <position x="139" y="239"/>
+      </graphics>
+    </arc>
+    <arc id="i21" source="p7" target="t8">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>queueNumber = (Integer) ((Token) getTokenSet().get(0)).getObject()</text>
+      </expression>
+      <graphics>
+        <position x="132" y="441"/>
+        <position x="116" y="404"/>
+        <position x="138" y="345"/>
+      </graphics>
+    </arc>
+    <arc id="o22" source="t8" target="p7">
+      <expression>
+        <text>queueNumber + 1</text>
+      </expression>
+      <graphics>
+        <position x="141" y="345"/>
+        <position x="164" y="404"/>
+        <position x="148" y="441"/>
+      </graphics>
+    </arc>
+    <arc id="i20" source="p4" target="t10">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>removeUseServer(getTokenSet())</text>
+      </expression>
+      <graphics>
+        <position x="518" y="269"/>
+        <position x="650" y="335"/>
+      </graphics>
+    </arc>
+    <transition id="t10">
+      <graphics>
+        <position x="660" y="340"/>
+      </graphics>
+      <name>
+        <text>Departure Process</text>
+        <graphics>
+          <offset x="88" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <arc id="o14" source="t9" target="p3">
+      <expression>
+        <text>queueNumber + 1</text>
+      </expression>
+      <graphics>
+        <position x="380" y="335"/>
+        <position x="380" y="241"/>
+      </graphics>
+    </arc>
+    <arc id="o12" source="t8" target="p2">
+      <expression>
+        <text>new CheckIn(customer,queueNumber)</text>
+      </expression>
+      <graphics>
+        <position x="160" y="339"/>
+        <position x="239" y="339"/>
+      </graphics>
+    </arc>
+    <arc id="o19" source="t10" target="p6">
+      <expression>
+        <text>customer</text>
+      </expression>
+      <graphics>
+        <position x="659" y="345"/>
+        <position x="659" y="479"/>
+      </graphics>
+    </arc>
+    <arc id="o18" source="t10" target="p5">
+      <expression>
+        <text>server</text>
+      </expression>
+      <graphics>
+        <position x="649" y="345"/>
+        <position x="518" y="410"/>
+      </graphics>
+    </arc>
+    <arc id="o16" source="t9" target="p4">
+      <expression>
+        <text>new UseServer(customer,server)@60</text>
+      </expression>
+      <graphics>
+        <position x="387" y="335"/>
+        <position x="482" y="271"/>
+      </graphics>
+    </arc>
+    <arc id="i15" source="p3" target="t9">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>queueNumber = (Integer) ((Token) getTokenSet().get(0)).getObject()</text>
+      </expression>
+      <graphics>
+        <position x="366" y="234"/>
+        <position x="324" y="276"/>
+        <position x="375" y="335"/>
+      </graphics>
+    </arc>
+    <arc id="i17" source="p5" target="t9">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>server = (String) ((Token) getTokenSet().get(0)).getObject()</text>
+      </expression>
+      <graphics>
+        <position x="482" y="408"/>
+        <position x="387" y="345"/>
+      </graphics>
+    </arc>
+    <arc id="i11" source="p1" target="t8">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>customer = (String) ((Token) getTokenSet().get(0)).getObject()</text>
+      </expression>
+      <graphics>
+        <position x="140" y="281"/>
+        <position x="140" y="335"/>
+      </graphics>
+    </arc>
+    <arc id="i13" source="p2" target="t9">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>removeCheckIn((CheckIn) ((Token) getTokenSet().get(0)).getObject())</text>
+      </expression>
+      <graphics>
+        <position x="281" y="340"/>
+        <position x="360" y="340"/>
+      </graphics>
+    </arc>
+    <transition id="t8">
+      <graphics>
+        <position x="140" y="340"/>
+      </graphics>
+      <name>
+        <text>Arrival Process</text>
+        <graphics>
+          <offset x="-56" y="2"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t9">
+      <graphics>
+        <position x="380" y="340"/>
+      </graphics>
+      <name>
+        <text>Assign Server</text>
+        <graphics>
+          <offset x="8" y="18"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+  </net>
+</pnml>

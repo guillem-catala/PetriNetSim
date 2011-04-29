@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml>
+  <net id="n1">
+    <place id="p7">
+      <graphics>
+        <position x="417" y="286"/>
+      </graphics>
+      <name>
+        <text>Executing inside critical section</text>
+        <graphics>
+          <offset x="12" y="24"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p6">
+      <graphics>
+        <position x="538" y="487"/>
+      </graphics>
+      <name>
+        <text>Executing outside critical section</text>
+        <graphics>
+          <offset x="27" y="31"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <place id="p5">
+      <graphics>
+        <position x="441" y="78"/>
+      </graphics>
+      <name>
+        <text>Waiting for critical section</text>
+        <graphics>
+          <offset x="13" y="-30"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p4">
+      <graphics>
+        <position x="294" y="144"/>
+      </graphics>
+      <name>
+        <text>Mutex semaphore</text>
+        <graphics>
+          <offset x="9" y="-33"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <place id="p3">
+      <graphics>
+        <position x="44" y="195"/>
+      </graphics>
+      <name>
+        <text>Executing outside critical section</text>
+        <graphics>
+          <offset x="56" y="39"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <place id="p2">
+      <graphics>
+        <position x="192" y="342"/>
+      </graphics>
+      <name>
+        <text>Executing inside critical section</text>
+        <graphics>
+          <offset x="9" y="-41"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p1">
+      <graphics>
+        <position x="137" y="97"/>
+      </graphics>
+      <name>
+        <text>Waiting for critical section</text>
+        <graphics>
+          <offset x="19" y="-32"/>
+        </graphics>
+      </name>
+    </place>
+    <arc id="o23" source="t8" target="p1">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="63" y="121"/>
+        <position x="117" y="103"/>
+      </graphics>
+    </arc>
+    <arc id="o26" source="t10" target="p4">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="198" y="447"/>
+        <position x="293" y="287"/>
+        <position x="293" y="164"/>
+      </graphics>
+    </arc>
+    <arc id="o28" source="t9" target="p2">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="187" y="175"/>
+        <position x="190" y="321"/>
+      </graphics>
+    </arc>
+    <arc id="o27" source="t10" target="p3">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="187" y="447"/>
+        <position x="56" y="367"/>
+        <position x="45" y="215"/>
+      </graphics>
+    </arc>
+    <arc id="i25" source="p2" target="t10">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="193" y="362"/>
+        <position x="195" y="447"/>
+      </graphics>
+    </arc>
+    <arc id="o20" source="t12" target="p6">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="426" y="392"/>
+        <position x="522" y="473"/>
+      </graphics>
+    </arc>
+    <arc id="i24" source="p3" target="t8">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="45" y="174"/>
+        <position x="47" y="131"/>
+      </graphics>
+    </arc>
+    <arc id="i21" source="p4" target="t9">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="274" y="149"/>
+        <position x="207" y="165"/>
+      </graphics>
+    </arc>
+    <arc id="i22" source="p1" target="t9">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="148" y="114"/>
+        <position x="183" y="165"/>
+      </graphics>
+    </arc>
+    <transition id="t10">
+      <graphics>
+        <position x="196" y="452"/>
+      </graphics>
+      <name>
+        <text>t10</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t11">
+      <graphics>
+        <position x="414" y="192"/>
+      </graphics>
+      <name>
+        <text>t11</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t12">
+      <graphics>
+        <position x="421" y="387"/>
+      </graphics>
+      <name>
+        <text>t12</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t13">
+      <graphics>
+        <position x="549" y="240"/>
+      </graphics>
+      <name>
+        <text>t13</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <arc id="o15" source="t13" target="p5">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="545" y="235"/>
+        <position x="452" y="95"/>
+      </graphics>
+    </arc>
+    <arc id="i19" source="p7" target="t12">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="418" y="306"/>
+        <position x="420" y="382"/>
+      </graphics>
+    </arc>
+    <arc id="o18" source="t11" target="p7">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="414" y="197"/>
+        <position x="415" y="265"/>
+      </graphics>
+    </arc>
+    <arc id="i14" source="p6" target="t13">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="539" y="466"/>
+        <position x="548" y="245"/>
+      </graphics>
+    </arc>
+    <arc id="i16" source="p5" target="t11">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="435" y="97"/>
+        <position x="415" y="187"/>
+      </graphics>
+    </arc>
+    <arc id="i17" source="p4" target="t11">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="313" y="151"/>
+        <position x="401" y="187"/>
+      </graphics>
+    </arc>
+    <transition id="t8">
+      <graphics>
+        <position x="48" y="126"/>
+      </graphics>
+      <name>
+        <text>t8</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <transition id="t9">
+      <graphics>
+        <position x="187" y="170"/>
+      </graphics>
+      <name>
+        <text>t9</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+  </net>
+</pnml>

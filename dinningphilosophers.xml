@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml>
+  <net id="n1">
+    <import>
+      <text>import java.util.Iterator;</text>
+    </import>
+    <declaration>
+      <text>int x = 1;
+
+    public String left(int i) {
+        String s = "";
+        switch (i) {
+            case 1:
+                s = new String("b");
+                break;
+            case 2:
+                s = new String("c");
+                break;
+            case 3:
+                s = new String("d");
+                break;
+            case 4:
+                s = new String("e");
+                break;
+            case 5:
+                s = new String("f");
+                break;
+        }
+        return s;
+    }
+
+    public String right(int i) {
+        String s = "";
+        switch (i) {
+            case 1:
+                s = new String("a");
+                break;
+            case 2:
+                s = new String("b");
+                break;
+            case 3:
+                s = new String("c");
+                break;
+            case 4:
+                s = new String("d");
+                break;
+            case 5:
+                s = new String("e");
+                break;
+        }
+        return s;
+    }
+
+    public TokenSet lr(int i) {
+        TokenSet tk = new TokenSet(new Token(right(i)));
+        tk.add(new Token(left(i)));
+        return tk;
+    }</text>
+    </declaration>
+    <place id="p3">
+      <graphics>
+        <position x="475" y="325"/>
+      </graphics>
+      <name>
+        <text>free forks</text>
+        <graphics>
+          <offset x="70" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>"a"</text>
+        <text>"b"</text>
+        <text>"c"</text>
+        <text>"d"</text>
+        <text>"e"</text>
+      </initialMarking>
+    </place>
+    <place id="p2">
+      <graphics>
+        <position x="325" y="335"/>
+      </graphics>
+      <name>
+        <text>eat</text>
+        <graphics>
+          <offset x="50" y="-10"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p1">
+      <graphics>
+        <position x="325" y="125"/>
+      </graphics>
+      <name>
+        <text>think</text>
+        <graphics>
+          <offset x="60" y="-10"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>1</text>
+        <text>2</text>
+        <text>3</text>
+        <text>4</text>
+        <text>5</text>
+      </initialMarking>
+    </place>
+    <arc id="o15" source="t5" target="p3">
+      <expression>
+        <text>lr(x)</text>
+      </expression>
+      <graphics>
+        <position x="331" y="440"/>
+        <position x="454" y="341"/>
+      </graphics>
+    </arc>
+    <arc id="o7" source="t5" target="p1">
+      <expression>
+        <text>x</text>
+      </expression>
+      <graphics>
+        <position x="325" y="450"/>
+        <position x="325" y="515"/>
+        <position x="185" y="515"/>
+        <position x="185" y="75"/>
+        <position x="325" y="75"/>
+        <position x="325" y="99"/>
+      </graphics>
+    </arc>
+    <arc id="o9" source="t4" target="p2">
+      <expression>
+        <text>x</text>
+      </expression>
+      <graphics>
+        <position x="325" y="230"/>
+        <position x="325" y="309"/>
+      </graphics>
+    </arc>
+    <arc id="i17" source="p2" target="t5">
+      <expression>
+        <text>getTokenSet().size()&gt;0</text>
+      </expression>
+      <expression>
+        <text>x = (Integer) (getTokenSet().get(0)).getObject()</text>
+      </expression>
+      <graphics>
+        <position x="325" y="361"/>
+        <position x="325" y="440"/>
+      </graphics>
+    </arc>
+    <arc id="i11" source="p3" target="t4">
+      <expression>
+        <text>getTokenSet().size()&gt;0</text>
+      </expression>
+      <expression>
+        <text>lr(x)</text>
+      </expression>
+      <graphics>
+        <position x="453" y="310"/>
+        <position x="332" y="230"/>
+      </graphics>
+    </arc>
+    <arc id="i13" source="p1" target="t4">
+      <expression>
+        <text>getTokenSet().size()&gt;0</text>
+      </expression>
+      <expression>
+        <text>x</text>
+      </expression>
+      <graphics>
+        <position x="325" y="151"/>
+        <position x="325" y="220"/>
+      </graphics>
+    </arc>
+    <transition id="t4">
+      <graphics>
+        <position x="325" y="225"/>
+      </graphics>
+      <name>
+        <text>take forks</text>
+        <graphics>
+          <offset x="-70" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>boolean found = false;
+            Iterator it = p1.getTokens().iterator();
+            while (!found &amp;&amp; it.hasNext()) {
+                Token token = (Token) it.next();
+                int i = (Integer) token.getObject();
+                if (p3.getTokens().containsAll(lr(i))) {
+                    x = i;
+                    found = true;
+                }
+            }
+            return found;</text>
+      </guard>
+    </transition>
+    <transition id="t5">
+      <graphics>
+        <position x="325" y="445"/>
+      </graphics>
+      <name>
+        <text>put down forks</text>
+        <graphics>
+          <offset x="-70" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+  </net>
+</pnml>

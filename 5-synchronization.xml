@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml>
+  <net id="n0">
+    <place id="p4">
+      <graphics>
+        <position x="250" y="249"/>
+      </graphics>
+      <name>
+        <text>p4</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p3">
+      <graphics>
+        <position x="378" y="78"/>
+      </graphics>
+      <name>
+        <text>p3</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <place id="p2">
+      <graphics>
+        <position x="246" y="75"/>
+      </graphics>
+      <name>
+        <text>p2</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <arc id="i9" source="p1" target="t5">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="143" y="90"/>
+        <position x="239" y="150"/>
+      </graphics>
+    </arc>
+    <place id="p1">
+      <graphics>
+        <position x="126" y="79"/>
+      </graphics>
+      <name>
+        <text>p1</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <arc id="o7" source="t5" target="p4">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="248" y="160"/>
+        <position x="249" y="228"/>
+      </graphics>
+    </arc>
+    <arc id="i8" source="p3" target="t5">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="360" y="88"/>
+        <position x="256" y="150"/>
+      </graphics>
+    </arc>
+    <transition id="t5">
+      <graphics>
+        <position x="248" y="155"/>
+      </graphics>
+      <name>
+        <text>t5</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <arc id="i6" source="p2" target="t5">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="246" y="95"/>
+        <position x="247" y="150"/>
+      </graphics>
+    </arc>
+  </net>
+</pnml>

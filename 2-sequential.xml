@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml>
+  <net id="n0">
+    <place id="p3">
+      <graphics>
+        <position x="143" y="492"/>
+      </graphics>
+      <name>
+        <text>p3</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p2">
+      <graphics>
+        <position x="143" y="276"/>
+      </graphics>
+      <name>
+        <text>p2</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+    </place>
+    <place id="p1">
+      <graphics>
+        <position x="142" y="67"/>
+      </graphics>
+      <name>
+        <text>p1</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <initialMarking>
+        <text>new Integer(1)</text>
+      </initialMarking>
+    </place>
+    <arc id="o7" source="t4" target="p2">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="143" y="190"/>
+        <position x="143" y="255"/>
+      </graphics>
+    </arc>
+    <arc id="o9" source="t5" target="p3">
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="142" y="402"/>
+        <position x="142" y="471"/>
+      </graphics>
+    </arc>
+    <transition id="t4">
+      <graphics>
+        <position x="143" y="185"/>
+      </graphics>
+      <name>
+        <text>t4</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <arc id="i8" source="p2" target="t5">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="142" y="296"/>
+        <position x="142" y="392"/>
+      </graphics>
+    </arc>
+    <transition id="t5">
+      <graphics>
+        <position x="142" y="397"/>
+      </graphics>
+      <name>
+        <text>t5</text>
+        <graphics>
+          <offset x="50" y="0"/>
+        </graphics>
+      </name>
+      <guard>
+        <text>return true;</text>
+      </guard>
+    </transition>
+    <arc id="i6" source="p1" target="t4">
+      <expression>
+        <text>getTokenSet().size() &gt; 0</text>
+      </expression>
+      <expression>
+        <text>new Integer(1)</text>
+      </expression>
+      <graphics>
+        <position x="142" y="87"/>
+        <position x="142" y="180"/>
+      </graphics>
+    </arc>
+  </net>
+</pnml>

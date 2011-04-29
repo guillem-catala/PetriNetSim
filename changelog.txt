@@ -1,0 +1,16 @@
+Seleccionar elements
+Quadre de selecció seleccionar múltiples elements
+Seleccionar PathPoints
+Eliminar elements 
+Moure elements seleccionats
+Encaixar elements amb la grid
+Nous icones (nou, obrir, guardar, info, grid)
+Nous menus nou, obrir, guardar, opcions, ajuda
+
+Animació amb colors de la simulació
+Log d'execució
+Botó borrar log d'execució
+Simulacio amb temps (Global clock)
+Reiniciar la simulació
+Errors de compilació al executar
+Creació formulari "Sobre..."
